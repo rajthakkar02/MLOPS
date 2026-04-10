@@ -17,6 +17,8 @@ RUN pip install --no-cache-dir /wheels/*
 
 COPY . .
 
+RUN python model.py
+
 EXPOSE 5001
 
 CMD ["python", "app.py"]

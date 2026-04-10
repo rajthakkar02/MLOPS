@@ -14,12 +14,6 @@ pipeline {
             }
         }
 
-        stage('Run ML Model Script') {
-            steps {
-                bat 'python backend\\model.py'
-            }
-        }
-
         stage('Build Docker Images') {
             steps {
                 bat 'docker compose build'
