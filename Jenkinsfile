@@ -16,25 +16,25 @@ pipeline {
 
         stage('Build Docker Images') {
             steps {
-                sh 'docker compose build'
+                bat 'docker compose build'
             }
         }
 
         stage('Stop Existing Containers') {
             steps {
-                sh 'docker compose down || true'
+                bat 'docker compose down || exit 0'
             }
         }
 
         stage('Deploy Containers') {
             steps {
-                sh 'docker compose up -d'
+                bat 'docker compose up -d'
             }
         }
 
         stage('Check Running Containers') {
             steps {
-                sh 'docker ps'
+                bat 'docker ps'
             }
         }
 
